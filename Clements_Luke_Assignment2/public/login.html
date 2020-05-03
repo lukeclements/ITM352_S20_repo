@@ -1,0 +1,50 @@
+/* Luke Clements */
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+                /* get the query string values from form submission */
+                let params = (new URL(document.location)).searchParams;
+                /*Checks to make sure there is a quantity written and that the quantities in textbox are valid */
+                window.onload = function () {
+                    /* creating the function for window.onload */
+                    /*Check if we're getting redirected from the server because of an error */
+                    if (params.has('LogError')) {
+                        /*if params has invalid registration data put the original data back into the textboxes*/
+                        /*put values of query string into username and password boxes*/
+                        login_form['username'].value = params.get('username');
+                        login_form['password'].value = params.get('password');
+                        /*do for the rest of register form*/
+                        /*get errors, indicate them on form*/
+                        /*if there is a login error, put up an alert*/
+                        alert('Invalid Username or Password');
+                    }
+                }
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login Page</title>
+        <link rel="stylesheet" href="login-style.css">
+        <link href="https:/*fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+        <!-- /*Login form*/ -->
+            <form name="login_form" action="login" method="POST">
+                Login <br> <br>
+                <div class="container">
+                        <label for="username"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" id="username" name="username" required><br>
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="password" onkeyup="" required><br>
+                <br>
+                <input type="submit" name="login" value="Login">
+            </div>
+            </form>
+            <br>
+            <input type="button" name="newuser" value="New User" onclick="window.location='./register.html'">
+        </table>
+        </div>
+    </body>
+</html>
